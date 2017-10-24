@@ -42,6 +42,23 @@ public:
             return getKth(s, i, l + j, n - j, k - j);
         }
     }
+        int getPos(vector<int>& data, int key){
+    //找到返回 index 下标，找不到返回插入位置。。
+        int first = 0;
+        int last = data.size() - 1;
+        while (first <= last) {
+            int mid = (first + last) / 2;
+            if (key > data[mid]) {
+                first = mid + 1;
+            }else if (key < data[mid]){
+                last = mid - 1;
+            }else{
+                return mid;
+            }
+        }
+        return  first;
+    }
+        //实在无法忍受这个方法太经典了。。。变化点就在于 int mid = (first + last) / 2;
     
 };
 
